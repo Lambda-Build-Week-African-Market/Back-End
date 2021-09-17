@@ -3,7 +3,6 @@
 const server = require('./server')
 
 const request = require('supertest')
-const { expectCt } = require('helmet')
 
 describe("Test Server Integration", () => {
 
