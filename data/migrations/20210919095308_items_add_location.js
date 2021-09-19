@@ -1,7 +1,7 @@
 
 exports.up = function(knex) {
   knex.schema.table('items', table => {
-      table.string('location')
+      table.string('location', 64)
   })
 };
 
