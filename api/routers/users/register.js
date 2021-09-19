@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router()
 
+// THE PATH TO THIS WILL CHANGE
 const {insert} = require('../../models/users/loginAndRegister')
 
 // router.get('/', async (req, res, next) => {
@@ -15,6 +16,8 @@ const {insert} = require('../../models/users/loginAndRegister')
 // })
 
 router.post('/', async (req, res, next) => {
+
+    // HANDLE HASHING IN MIDDLEWARE
 
     try {
         const user = await insert(req.body)
