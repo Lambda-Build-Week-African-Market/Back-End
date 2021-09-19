@@ -1,12 +1,12 @@
 
 exports.up = function(knex) {
-    knex.schema.table('items', table => {
-        table.decimal('price')
+    return knex.schema.table('items', table => {
+        table.decimal('price').notNullable()
     })
 };
 
 exports.down = function(knex) {
-    knex.schema.table('items', table => {
+    return knex.schema.table('items', table => {
         table.dropColumn('price')
     })
 };

@@ -1,12 +1,12 @@
 
 exports.up = function(knex) {
-    knex.schema.table('items', table => {
-        table.string('name', 64).unique()
+    return knex.schema.table('items', table => {
+        table.string('name', 64).unique().notNullable()
     })
 };
 
 exports.down = function(knex) {
-    knex.schema.table('items', table => {
+    return knex.schema.table('items', table => {
         table.dropColumn('name')
     })
 };

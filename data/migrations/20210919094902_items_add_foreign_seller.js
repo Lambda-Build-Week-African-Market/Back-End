@@ -1,12 +1,12 @@
 
 exports.up = function(knex) {
-  knex.schema.table('items', table => {
-      table.foreign('seller').references('users.user_id')
+  return knex.schema.table('items', table => {
+      table.integer('seller').notNullable().references('user_id').inTable('users')
   })
 };
 
 exports.down = function(knex) {
-  knex.schema.table('items', table => {
+  return knex.schema.table('items', table => {
       table.dropForeign('seller')
   })
 };

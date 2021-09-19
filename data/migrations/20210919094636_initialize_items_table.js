@@ -1,10 +1,10 @@
 
 exports.up = function(knex) {
-  knex.schema.createTable('items', table => {
-      table.increments('item_id')
+  return knex.schema.createTable('items', table => {
+      table.increments('item_id').notNullable()
   })
 };
 
 exports.down = function(knex) {
-    knex.schema.dropTable('items')
+  return knex.schema.dropTable('items')
 };

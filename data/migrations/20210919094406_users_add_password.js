@@ -1,12 +1,12 @@
 
 exports.up = function(knex) {
-    knex.schema.table('users', table => {
-        table.string('password')
+    return knex.schema.table('users', table => {
+        table.string('password').notNullable()
       })
 };
 
 exports.down = function(knex) {
-    knex.schema.table('users', table => {
+    return knex.schema.table('users', table => {
         table.dropColumn('password')
     })
 };
