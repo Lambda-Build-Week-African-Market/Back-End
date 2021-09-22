@@ -4,17 +4,6 @@ const router = express.Router()
 // THE PATH TO THIS WILL CHANGE
 const {insert} = require('../../models/users/loginAndRegister')
 
-// router.get('/', async (req, res, next) => {
-
-//     try {
-//         const users = await find({email: 'test3@email.com'})
-//         res.status(200).json(users)
-//     } catch (err) {
-//         res.status(200).json({message: '/api/register online'})
-//     }
-
-// })
-
 router.post('/', async (req, res, next) => {
 
     // HASH HANDLED IN MIDDLEWARE
@@ -23,7 +12,7 @@ router.post('/', async (req, res, next) => {
         const user = await insert(req.body)
         res.status(201).json(user)
     } catch(err) {
-        res.status(500).json({message: "user could not be added at this time"})
+        res.status(500).json({message: "User could not be added at this time"})
     }
 
 })

@@ -4,7 +4,13 @@ const express = require('express')
 const cors = require('cors')
 const helmet = require('helmet')
 
-const {checkUserBodyValid, checkEmailUnused, checkEmailExists, checkPasswordsMatch} = require('./middleware/allMiddleware')
+const {checkUserBodyValid,
+    checkEmailUnused,
+    checkEmailExists,
+    checkPasswordsMatch,
+    checkItemBodyValid,
+    checkItemNameUnused,
+    checkItemExists} = require('./middleware/allMiddleware')
 
 const {registerRouter, loginRouter, newItemRouter} = require('./routers/allRoutes')
 
@@ -16,7 +22,7 @@ server.use(express.json())
 
 server.use('/api/register', checkUserBodyValid, checkEmailUnused, registerRouter)
 server.use('/api/login', checkUserBodyValid, checkEmailExists, checkPasswordsMatch, loginRouter)
-server.use('/api/item/new', newItemRouter)
+server.use('/api/item/new', checkItemBodyValid, checkItemNameUnused, newItemRouter)
 server.use('/api/item/new', itemRouter)
 server.use('/api/item/new', itemRouter)
 server.use('/api/item/new', itemRouter)

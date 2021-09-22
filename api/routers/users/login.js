@@ -19,11 +19,15 @@ const tokenMaker = user => {
 
 }
 
-// NEED MIDDLEWARE TO FINISH
-// router.post('/', (req, res, next) => {
+router.post('/', async (req, res, next) => {
 
-//     res.status(200).json({message: "/api/login online"})
+    const {user} = req
 
-// })
+    const token = tokenMaker(user)
+
+    res.status(200).json({message: `${user.username} logged in, your token is:`,
+    token})
+
+})
 
 module.exports = router
