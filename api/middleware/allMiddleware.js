@@ -5,6 +5,7 @@ const checkEmailExists = require('./users/checkEmailExists')
 const checkPasswordsMatch = require('./users/checkPasswordsMatch')
 const checkItemBodyValid = require('./items/checkBodyValid')
 const checkItemNameUnused = require('./items/checkItemNameUnused')
+const checkItemExists = require('./items/checkItemExists')
 
 module.exports = {
     checkUserBodyValid,
@@ -12,5 +13,6 @@ module.exports = {
     checkEmailExists,
     checkPasswordsMatch,
     checkItemBodyValid,
-    checkItemNameUnused
+    checkItemNameUnused,
+    checkItemExists
 }

@@ -6,7 +6,7 @@ const helmet = require('helmet')
 
 const {checkUserBodyValid, checkEmailUnused, checkEmailExists, checkPasswordsMatch} = require('./middleware/allMiddleware')
 
-const {registerRouter, loginRouter, itemRouter} = require('./routers/allRoutes')
+const {registerRouter, loginRouter, newItemRouter} = require('./routers/allRoutes')
 
 const server = express()
 
@@ -16,7 +16,10 @@ server.use(express.json())
 
 server.use('/api/register', checkUserBodyValid, checkEmailUnused, registerRouter)
 server.use('/api/login', checkUserBodyValid, checkEmailExists, checkPasswordsMatch, loginRouter)
-server.use('/api/item', itemRouter)
+server.use('/api/item/new', newItemRouter)
+server.use('/api/item/new', itemRouter)
+server.use('/api/item/new', itemRouter)
+server.use('/api/item/new', itemRouter)
 
 server.get('/', (req, res, next) => {
 
