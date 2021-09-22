@@ -17,7 +17,7 @@ const {insert} = require('../../models/users/loginAndRegister')
 
 router.post('/', async (req, res, next) => {
 
-    // HANDLE HASHING IN MIDDLEWARE
+    // HASH HANDLED IN MIDDLEWARE
 
     try {
         const user = await insert(req.body)
