@@ -19,7 +19,7 @@ const tokenMaker = user => {
 
 }
 
-router.post('/', async (req, res, next) => {
+router.post('/', (req, res, next) => {
 
     const {user} = req
 
