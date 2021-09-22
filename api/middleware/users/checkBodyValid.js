@@ -7,6 +7,10 @@ const checkBodyValid = (req, res, next) => {
 
     const isUnValid = username && username.length > 0 && username.length < 25
 
+    if (!isUnValid) {
+        username = 'User'
+    }
+
     const isPwValid = password && password.length > 0 && password.length < 25
 
     const isEmailValid = email && email.length > 0
