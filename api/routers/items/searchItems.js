@@ -7,7 +7,13 @@ router.post('/', (req, res, next) => {
 
     const {key, value} = req.body
 
-    const search = find({[key]: value})
+    let search = ''
+
+    if (key && value) {
+        search = find({[key]: value})
+    } else {
+        search = find()
+    }
 
     res.status(200).json(search)
 
