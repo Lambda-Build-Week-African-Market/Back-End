@@ -10,7 +10,8 @@ const {checkUserBodyValid,
     checkPasswordsMatch,
     checkItemBodyValid,
     checkItemNameUnused,
-    checkItemExists} = require('./middleware/allMiddleware')
+    checkItemExists,
+    authorized} = require('./middleware/allMiddleware')
 
 const {registerRouter, loginRouter, newItemRouter} = require('./routers/allRoutes')
 
@@ -22,10 +23,10 @@ server.use(express.json())
 
 server.use('/api/register', checkUserBodyValid, checkEmailUnused, registerRouter)
 server.use('/api/login', checkUserBodyValid, checkEmailExists, checkPasswordsMatch, loginRouter)
-server.use('/api/item/new', checkItemBodyValid, checkItemNameUnused, newItemRouter)
-server.use('/api/item/new', itemRouter)
-server.use('/api/item/new', itemRouter)
-server.use('/api/item/new', itemRouter)
+server.use('/api/item/new', authorized, checkItemBodyValid, checkItemNameUnused, newItemRouter)
+server.use('/api/item/new', authorized, itemRouter)
+server.use('/api/item/new', authorized, itemRouter)
+server.use('/api/item/new', authorized, itemRouter)
 
 server.get('/', (req, res, next) => {
 

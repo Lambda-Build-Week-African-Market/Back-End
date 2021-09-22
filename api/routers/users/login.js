@@ -1,6 +1,8 @@
 const express = require('express')
 const router = express.Router()
 
+const jwt = require('jsonwebtoken')
+
 const SECRET = require('../../../config/jwtConfig')
 
 const tokenMaker = user => {

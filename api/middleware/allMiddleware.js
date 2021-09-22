@@ -6,6 +6,7 @@ const checkPasswordsMatch = require('./users/checkPasswordsMatch')
 const checkItemBodyValid = require('./items/checkBodyValid')
 const checkItemNameUnused = require('./items/checkItemNameUnused')
 const checkItemExists = require('./items/checkItemExists')
+const authorized = require('./items/authorized')
 
 module.exports = {
     checkUserBodyValid,
@@ -14,5 +15,6 @@ module.exports = {
     checkPasswordsMatch,
     checkItemBodyValid,
     checkItemNameUnused,
-    checkItemExists
+    checkItemExists,
+    authorized
 }
