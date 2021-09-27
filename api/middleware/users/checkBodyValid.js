@@ -20,6 +20,7 @@ const checkBodyValid = (req, res, next) => {
     const hashRounds = process.env.BCRYPT_ROUNDS || 8
 
     if (isValid) {
+        req.old = password
         password = bcryptjs.hashSync(password, hashRounds)
         req.body.password = password
         next()
