@@ -6,9 +6,12 @@ const baseConfig = {
   migrations: {
     directory: './data/migrations'
   },
+  seeds: {
+    directory: './data/seeds'
+  },
   pool: {
     afterCreate: (connect, done) => connect.run('PRAGMA foreign_keys = ON', done)
-  }
+  },
 }
 
 module.exports = {
@@ -17,10 +20,7 @@ module.exports = {
     ...baseConfig,
     connection: {
       filename: './data/marketDB.db3'
-    },
-    seeds: {
-      directory: './data/seeds'
-    },
+    }
   },
 
   // COMMENTED OUT UNTIL ON HEROKU
@@ -34,9 +34,6 @@ module.exports = {
   //   pool: {
   //     min: 2,
   //     max: 10
-  //   },
-  //   migrations: {
-  //     tableName: 'knex_migrations'
   //   }
   // },
 
@@ -51,9 +48,6 @@ module.exports = {
   //   pool: {
   //     min: 2,
   //     max: 10
-  //   },
-  //   migrations: {
-  //     tableName: 'knex_migrations'
   //   }
   // }
 

@@ -19,16 +19,18 @@ const insert = async (item) => {
 }
 
 // BUILD LATER
-const update = async (item) => {
+const update = async (id, item) => {
 
-    return db
+    db('items').where({id}).update(item)
+    return find({id})
 
 }
 
 // BUILD LATER
 const remove = async (item) => {
 
-    return db
+    db('items').where('item').del()
+    return db('items')
 
 }
 

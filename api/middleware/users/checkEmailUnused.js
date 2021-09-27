@@ -1,11 +1,11 @@
 
 const {find} = require('../../models/users/loginAndRegister')
 
-const checkEmailUnused = (req, res, next) => {
+const checkEmailUnused = async (req, res, next) => {
 
     const {email} = req.body
 
-    const findEmail = find({email: email})
+    const findEmail = await find({email: email})
 
     if (!findEmail) {
         next()

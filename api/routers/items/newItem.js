@@ -3,7 +3,7 @@ const express = require('express')
 const { insert } = require('../../models/users/loginAndRegister')
 const router = express.Router()
 
-router.post('/', async (req, res, next) => {
+router.post('/', async (req, res) => {
 
     try {
         const item = await insert(req.body)
